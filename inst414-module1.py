@@ -5,7 +5,7 @@ import pandas as pd
 df = pd.read_csv("synthetic_coffee_health_10000.csv")
 
 # Want to find the average caffeine intake by country in mg
-avg_by_country = df.groupby('Country')['Caffeine_mg'].mean()
+avg_by_country = df.dropna().groupby('Country')['Caffeine_mg'].mean()
 
 country_df = pd.DataFrame(avg_by_country)
 
