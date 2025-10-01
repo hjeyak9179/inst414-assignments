@@ -11,7 +11,7 @@ email_graph = nx.Graph()
 
 # Iterate through each row of data, making people as nodes and communication
 # between personnel as edge while increaing weight of edge
-for index, row in df.iterrows():
+for index, row in df.dropna().iterrows():
     if not email_graph.has_node(row['From Name']):
         email_graph.add_node(row['From Name'])
     if not email_graph.has_node(row['To Name']):
