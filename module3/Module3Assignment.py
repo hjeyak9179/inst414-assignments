@@ -1,8 +1,7 @@
 import pandas as pd
 import json 
 import matplotlib.pyplot as plt 
-from sklearn.discriminant_analysis import StandardScaler
-from sklearn.metrics import DistanceMetric, pairwise_distances
+from sklearn.metrics import DistanceMetric
 
 event_map = {}
 event_features_map = {}
@@ -46,7 +45,6 @@ for feature in features:
     target_vec = df_norm.loc[target_event_index].to_numpy().reshape(1, -1)
     distances = euclid.pairwise(all_vecs, target_vec)[:, 0]
 
-    # Create list of (event_index, distance), excluding target
     pairs = [(eid, dist) for eid, dist in zip(df_norm.index, distances) if eid != target_event_index]
     top10_euclid = sorted(pairs, key=lambda x: x[1])[:10]
 
