@@ -3,12 +3,11 @@ import pandas as pd
 import numpy as np
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import MinMaxScaler
-from sklearn.metrics import DistanceMetric
 
 # Prepare dataset by mapping values and normalizing 
 plants_df = pd.read_csv("Indoor_Plant_Health_and_Growth_Factors.csv")[["Height_cm", "New_Growth_Count", "Pest_Severity"]].dropna()
 
-severity_map = {"None": 0, "Low": 1, "Moderate": 2, "High": 3}
+severity_map = {"None": 3, "Low": 2, "Moderate": 1, "High": 0g}
 plants_df["Pest_Severity"] = plants_df["Pest_Severity"].map(severity_map)
 
 scaler = MinMaxScaler()
