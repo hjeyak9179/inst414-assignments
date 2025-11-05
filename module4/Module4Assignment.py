@@ -7,7 +7,7 @@ from sklearn.preprocessing import MinMaxScaler
 # Prepare dataset by mapping values and normalizing 
 plants_df = pd.read_csv("Indoor_Plant_Health_and_Growth_Factors.csv")[["Height_cm", "New_Growth_Count", "Pest_Severity"]].dropna()
 
-severity_map = {"None": 3, "Low": 2, "Moderate": 1, "High": 0g}
+severity_map = {"None": 3, "Low": 2, "Moderate": 1, "High": 0}
 plants_df["Pest_Severity"] = plants_df["Pest_Severity"].map(severity_map)
 
 scaler = MinMaxScaler()
