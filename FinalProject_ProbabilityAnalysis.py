@@ -97,3 +97,7 @@ print(city_probabilities.head(10))
 results.to_csv("probability_output.csv", index=False)
 
 print("\nProbability analysis complete. Output saved as 'probability_output.csv'.")
+
+results.groupby("price_category")[["Prob_Low", "Prob_Medium", "Prob_High"]].mean().plot.bar()
+plt.title("Average Predicted Price Probabilities by Category")
+plt.show()
